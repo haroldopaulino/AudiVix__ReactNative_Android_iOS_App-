@@ -6,7 +6,8 @@ AudiVix is a React Native implementation of the AudiVix media platform, matching
 
 This repository demonstrates practical cross-platform mobile engineering: React Native architecture, native Android/iOS integration, shared UI logic, media playback, filesystem-backed offline downloads, and platform-aware build configuration.
 
-<img width="1122" height="1402" alt="audivix_react_native_1" src="https://github.com/user-attachments/assets/8364f88b-803f-41b3-afe8-c576907f6dab" />
+<img width="1122" height="1402" alt="audivix_react_native_2" src="https://github.com/user-attachments/assets/5d9b2a56-a0cd-4c69-a51e-8603298321b2" />
+<img width="1122" height="1402" alt="audivix_react_native_3" src="https://github.com/user-attachments/assets/7f2365da-59da-47e3-844a-ab00f02d2d7d" />
 
 ---
 
