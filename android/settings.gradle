@@ -1,0 +1,9 @@
+// Owner: Haroldo Paulino
+pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
+plugins { id("com.facebook.react.settings") }
+extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
+    ex.autolinkLibrariesFromCommand(["node", new File(settingsDir.parentFile, "scripts/autolink-config.js").absolutePath])
+}
+rootProject.name = 'AudiVix'
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')

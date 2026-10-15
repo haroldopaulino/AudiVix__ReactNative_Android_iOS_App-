@@ -1,0 +1,7 @@
+// Owner: Haroldo Paulino
+import TrackPlayer,{Capability,Event,State} from 'react-native-track-player';
+let initialized=false;
+export const setupAudio=async()=>{if(initialized)return;await TrackPlayer.setupPlayer();await TrackPlayer.updateOptions({capabilities:[Capability.Play,Capability.Pause,Capability.Stop,Capability.SeekTo,Capability.SkipToNext,Capability.SkipToPrevious],compactCapabilities:[Capability.Play,Capability.Pause,Capability.SkipToNext]});initialized=true};
+export const playbackService=async()=>{TrackPlayer.addEventListener(Event.RemotePlay,()=>TrackPlayer.play());TrackPlayer.addEventListener(Event.RemotePause,()=>TrackPlayer.pause());TrackPlayer.addEventListener(Event.RemoteStop,()=>TrackPlayer.stop());TrackPlayer.addEventListener(Event.RemoteNext,()=>TrackPlayer.skipToNext());TrackPlayer.addEventListener(Event.RemotePrevious,()=>TrackPlayer.skipToPrevious());TrackPlayer.addEventListener(Event.RemoteSeek,e=>TrackPlayer.seekTo(e.position))};
+export const playAudio=async(items:{id:string;title:string;artist:string;streamUrl:string;artworkUrl?:string}[],index:number)=>{await setupAudio();await TrackPlayer.reset();await TrackPlayer.add(items.map(m=>({id:m.id,url:m.streamUrl,title:m.title,artist:m.artist,artwork:m.artworkUrl})));await TrackPlayer.skip(index);await TrackPlayer.play()};
+export const audioIsPlaying=async()=>{const s=await TrackPlayer.getPlaybackState();return s.state===State.Playing};

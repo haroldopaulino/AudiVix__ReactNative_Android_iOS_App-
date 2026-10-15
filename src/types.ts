@@ -1,0 +1,7 @@
+// Owner: Haroldo Paulino
+export type MediaType = 'audio' | 'video';
+export type Settings = {endpoint:string;darkTheme:boolean;notificationsEnabled:boolean;chimesEnabled:boolean;offlineDownloadsEnabled:boolean;showMiniPlayerForVideos:boolean;autoPlayNextMedia:boolean};
+export const defaults:Settings={endpoint:'https://sparqm.com/audivix/web_services/',darkTheme:true,notificationsEnabled:true,chimesEnabled:true,offlineDownloadsEnabled:false,showMiniPlayerForVideos:true,autoPlayNextMedia:true};
+export type Media={id:string;numericId:number;title:string;artist:string;description:string;type:MediaType;streamUrl:string;thumbnailUrl?:string;artworkUrl?:string;durationMs:number;rating:number;playCount:number;genre:string;compressedFormat:string;previewVideoUrl?:string};
+export type Playlist={id:string;numericId:number;name:string;itemIds:string[]};
+export type MediaDto={id?:number;media_id?:number;title?:string;artist?:string;description?:string;type?:string;category?:string;genre?:string;stream_url?:string;streamUrl?:string;stream_token?:string;thumbnail_url?:string;thumbnailUrl?:string;artwork_url?:string;artworkUrl?:string;image_url?:string;cover_url?:string;preview_video_url?:string;previewVideoUrl?:string;duration_seconds?:number;duration_ms?:number;durationMs?:number;rating?:number;average_rating?:number;play_count?:number;watch_count?:number;listen_count?:number;compressed_format?:string;format?:string;mime_type?:string};

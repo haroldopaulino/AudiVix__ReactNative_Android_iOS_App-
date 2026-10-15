@@ -1,0 +1,19 @@
+// Owner: Haroldo Paulino
+apply plugin: "com.android.application"
+apply plugin: "org.jetbrains.kotlin.android"
+apply plugin: "com.facebook.react"
+react { autolinkLibrariesWithApp() }
+def enableProguardInReleaseBuilds = false
+android {
+    buildFeatures { resValues = true }
+    namespace = "com.audivix"
+    compileSdk = rootProject.ext.compileSdkVersion
+    ndkVersion = rootProject.ext.ndkVersion
+    defaultConfig { applicationId = "com.audivix"; minSdk = rootProject.ext.minSdkVersion; targetSdk = rootProject.ext.targetSdkVersion; versionCode = 1; versionName = "1.0" }
+    splits { abi { reset(); enable = false; universalApk = false } }
+    buildTypes {
+        debug { }
+        release { signingConfig signingConfigs.debug; minifyEnabled enableProguardInReleaseBuilds; proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro" }
+    }
+}
+dependencies { implementation("com.facebook.react:react-android"); if (hermesEnabled.toBoolean()) { implementation("com.facebook.react:hermes-android") } else { implementation("org.webkit:android-jsc:+") } }
